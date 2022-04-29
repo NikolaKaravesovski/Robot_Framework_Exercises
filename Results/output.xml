@@ -1,0 +1,857 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.1 (Python 3.7.5 on win32)" generated="20220429 21:10:57.425" rpa="false" schemaversion="2">
+<suite id="s1" name="Robot Framework Exercises" source="C:\Users\Nikola\OneDrive\Documents\Robot Framework Course\Robot_Framework_Exercises">
+<suite id="s1-s1" name="Tests" source="C:\Users\Nikola\OneDrive\Documents\Robot Framework Course\Robot_Framework_Exercises\Tests">
+<suite id="s1-s1-s1" name="Checkout" source="C:\Users\Nikola\OneDrive\Documents\Robot Framework Course\Robot_Framework_Exercises\Tests\Checkout.robot">
+<test id="s1-s1-s1-t1" name="TC002.Access the checkout page without adding product to shopping cart">
+<kw name="Open app" library="Common" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${HomepageURL}</arg>
+<arg>${Browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220429 21:10:57.928" level="INFO">Opening browser 'chrome' to base url 'https://demo.nopcommerce.com/'.</msg>
+<status status="PASS" starttime="20220429 21:10:57.927" endtime="20220429 21:11:03.742"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20220429 21:11:03.744" endtime="20220429 21:11:03.927"/>
+</kw>
+<status status="PASS" starttime="20220429 21:10:57.926" endtime="20220429 21:11:03.928"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${LocatorShopinngCartTopMenu}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220429 21:11:03.930" level="INFO">Clicking element '//*[@class="cart-label"]'.</msg>
+<status status="PASS" starttime="20220429 21:11:03.928" endtime="20220429 21:11:05.760"/>
+</kw>
+<kw name="Validate that Shopping Cart Is Empty&amp;CheckoutBtn isn't visible" library="Checkout">
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>${EmptyShoppCartMessage}</arg>
+<arg>Your Shopping Cart is empty!</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20220429 21:11:05.764" level="INFO">Verifying element '//*[@class="no-data"]' contains exact text 'Your Shopping Cart is empty!'.</msg>
+<status status="PASS" starttime="20220429 21:11:05.762" endtime="20220429 21:11:05.802"/>
+</kw>
+<kw name="Element Should Not Be Visible" library="SeleniumLibrary">
+<arg>${LocCheckoutBtn}</arg>
+<doc>Verifies that the element identified by ``locator`` is NOT visible.</doc>
+<msg timestamp="20220429 21:11:05.819" level="INFO">Element '//*[@id="checkout"]' did not exist.</msg>
+<status status="PASS" starttime="20220429 21:11:05.803" endtime="20220429 21:11:05.819"/>
+</kw>
+<status status="PASS" starttime="20220429 21:11:05.761" endtime="20220429 21:11:05.820"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220429 21:11:05.821" endtime="20220429 21:11:08.163"/>
+</kw>
+<status status="PASS" starttime="20220429 21:10:57.924" endtime="20220429 21:11:08.165"/>
+</test>
+<status status="PASS" starttime="20220429 21:10:57.879" endtime="20220429 21:11:08.169"/>
+</suite>
+<suite id="s1-s1-s2" name="Login" source="C:\Users\Nikola\OneDrive\Documents\Robot Framework Course\Robot_Framework_Exercises\Tests\Login.robot">
+<test id="s1-s1-s2-t1" name="TC003.Enter Valid Email and invalid Password">
+<kw name="Open app" library="Common" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${HomepageURL}</arg>
+<arg>${Browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220429 21:11:08.241" level="INFO">Opening browser 'chrome' to base url 'https://demo.nopcommerce.com/'.</msg>
+<status status="PASS" starttime="20220429 21:11:08.239" endtime="20220429 21:11:11.798"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20220429 21:11:11.800" endtime="20220429 21:11:11.983"/>
+</kw>
+<status status="PASS" starttime="20220429 21:11:08.238" endtime="20220429 21:11:11.984"/>
+</kw>
+<kw name="Navigate to Login page" library="Login">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${LoginBtn_TopMenu}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220429 21:11:11.986" level="INFO">Clicking element '//*[@href="/login?returnUrl=%2F"]'.</msg>
+<status status="PASS" starttime="20220429 21:11:11.985" endtime="20220429 21:11:12.807"/>
+</kw>
+<status status="PASS" starttime="20220429 21:11:11.984" endtime="20220429 21:11:12.809"/>
+</kw>
+<kw name="Login User" library="Login">
+<arg>${ValidEmail}</arg>
+<arg>${InvalidPassword}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${LocatorEmail_input}</arg>
+<arg>${arg1}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220429 21:11:12.813" level="INFO">Typing text 'Alek@mail.com' into text field 'id:Email'.</msg>
+<status status="PASS" starttime="20220429 21:11:12.812" endtime="20220429 21:11:13.015"/>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>${LocatorPassword_input}</arg>
+<arg>${arg2}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20220429 21:11:13.016" level="INFO">Typing password into text field 'id=Password'.</msg>
+<msg timestamp="20220429 21:11:13.078" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20220429 21:11:13.185" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20220429 21:11:13.016" endtime="20220429 21:11:13.186"/>
+</kw>
+<kw name="Select Checkbox" library="SeleniumLibrary">
+<arg>${CheckboxLocator}</arg>
+<doc>Selects the checkbox identified by ``locator``.</doc>
+<msg timestamp="20220429 21:11:13.187" level="INFO">Selecting checkbox '//*[@id="RememberMe"]'.</msg>
+<status status="PASS" starttime="20220429 21:11:13.186" endtime="20220429 21:11:13.311"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${LoginBtn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220429 21:11:13.312" level="INFO">Clicking button '//*[@class="button-1 login-button"]'.</msg>
+<status status="PASS" starttime="20220429 21:11:13.311" endtime="20220429 21:11:14.135"/>
+</kw>
+<status status="PASS" starttime="20220429 21:11:12.810" endtime="20220429 21:11:14.136"/>
+</kw>
+<kw name="Verify That User is not Logged with invalid Password" library="Login">
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>${ErrorInvalidPassword}</arg>
+<arg>Login was unsuccessful. Please correct the errors and try again.</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20220429 21:11:14.221" level="INFO">Element '//*[@class="message-error validation-summary-errors"]' contains text 'Login was unsuccessful. Please correct the errors and try again.'.</msg>
+<status status="PASS" starttime="20220429 21:11:14.138" endtime="20220429 21:11:14.221"/>
+</kw>
+<status status="PASS" starttime="20220429 21:11:14.137" endtime="20220429 21:11:14.222"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220429 21:11:14.222" endtime="20220429 21:11:16.511"/>
+</kw>
+<status status="PASS" starttime="20220429 21:11:08.236" endtime="20220429 21:11:16.512"/>
+</test>
+<test id="s1-s1-s2-t2" name="TC004.Enter Invalid Email and Valid Password">
+<kw name="Open app" library="Common" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${HomepageURL}</arg>
+<arg>${Browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220429 21:11:16.526" level="INFO">Opening browser 'chrome' to base url 'https://demo.nopcommerce.com/'.</msg>
+<status status="PASS" starttime="20220429 21:11:16.523" endtime="20220429 21:11:20.361"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20220429 21:11:20.362" endtime="20220429 21:11:20.500"/>
+</kw>
+<status status="PASS" starttime="20220429 21:11:16.519" endtime="20220429 21:11:20.501"/>
+</kw>
+<kw name="Navigate to Login page" library="Login">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${LoginBtn_TopMenu}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220429 21:11:20.509" level="INFO">Clicking element '//*[@href="/login?returnUrl=%2F"]'.</msg>
+<status status="PASS" starttime="20220429 21:11:20.506" endtime="20220429 21:11:21.814"/>
+</kw>
+<status status="PASS" starttime="20220429 21:11:20.501" endtime="20220429 21:11:21.815"/>
+</kw>
+<kw name="Login User" library="Login">
+<arg>${InvalidEmail}</arg>
+<arg>${ValidPassword}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${LocatorEmail_input}</arg>
+<arg>${arg1}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220429 21:11:21.819" level="INFO">Typing text 'SkyBoo&amp;on.net.mk' into text field 'id:Email'.</msg>
+<status status="PASS" starttime="20220429 21:11:21.817" endtime="20220429 21:11:22.014"/>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>${LocatorPassword_input}</arg>
+<arg>${arg2}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20220429 21:11:22.019" level="INFO">Typing password into text field 'id=Password'.</msg>
+<msg timestamp="20220429 21:11:22.101" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20220429 21:11:22.229" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20220429 21:11:22.016" endtime="20220429 21:11:22.229"/>
+</kw>
+<kw name="Select Checkbox" library="SeleniumLibrary">
+<arg>${CheckboxLocator}</arg>
+<doc>Selects the checkbox identified by ``locator``.</doc>
+<msg timestamp="20220429 21:11:22.231" level="INFO">Selecting checkbox '//*[@id="RememberMe"]'.</msg>
+<status status="PASS" starttime="20220429 21:11:22.230" endtime="20220429 21:11:22.373"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${LoginBtn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220429 21:11:22.376" level="INFO">Clicking button '//*[@class="button-1 login-button"]'.</msg>
+<status status="PASS" starttime="20220429 21:11:22.374" endtime="20220429 21:11:22.562"/>
+</kw>
+<status status="PASS" starttime="20220429 21:11:21.815" endtime="20220429 21:11:22.563"/>
+</kw>
+<kw name="Verify That User is not Logged with InvalidEmail" library="Login">
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>${LocatorErrorEmail}</arg>
+<arg>Wrong email</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20220429 21:11:22.568" level="INFO">Verifying element '//*[@id="Email-error"]' contains exact text 'Wrong email'.</msg>
+<status status="PASS" starttime="20220429 21:11:22.566" endtime="20220429 21:11:22.622"/>
+</kw>
+<status status="PASS" starttime="20220429 21:11:22.564" endtime="20220429 21:11:22.623"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220429 21:11:22.624" endtime="20220429 21:11:24.928"/>
+</kw>
+<status status="PASS" starttime="20220429 21:11:16.515" endtime="20220429 21:11:24.929"/>
+</test>
+<status status="PASS" starttime="20220429 21:11:08.183" endtime="20220429 21:11:24.936"/>
+</suite>
+<suite id="s1-s1-s3" name="Product List" source="C:\Users\Nikola\OneDrive\Documents\Robot Framework Course\Robot_Framework_Exercises\Tests\Product_List.robot">
+<test id="s1-s1-s3-t1" name="TC002.Verify the filter option is working">
+<kw name="Open app" library="Common" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${HomepageURL}</arg>
+<arg>${Browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220429 21:11:24.992" level="INFO">Opening browser 'chrome' to base url 'https://demo.nopcommerce.com/'.</msg>
+<status status="PASS" starttime="20220429 21:11:24.990" endtime="20220429 21:11:29.362"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20220429 21:11:29.363" endtime="20220429 21:11:29.522"/>
+</kw>
+<status status="PASS" starttime="20220429 21:11:24.989" endtime="20220429 21:11:29.523"/>
+</kw>
+<kw name="Navigate to Notebooks" library="Product_List">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${LocatorComputers}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220429 21:11:29.526" level="INFO">Clicking element '(//a[@href="/computers"])[1]'.</msg>
+<status status="PASS" starttime="20220429 21:11:29.525" endtime="20220429 21:11:30.617"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${LocatorNotebooks }</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220429 21:11:30.619" level="INFO">Clicking element '(//a[@href="/notebooks"])[3]'.</msg>
+<status status="PASS" starttime="20220429 21:11:30.618" endtime="20220429 21:11:31.573"/>
+</kw>
+<status status="PASS" starttime="20220429 21:11:29.524" endtime="20220429 21:11:31.576"/>
+</kw>
+<kw name="CPU_Intel Core i5 &amp; RAM_8 GB" library="Product_List">
+<kw name="Select Checkbox" library="SeleniumLibrary">
+<arg>${LocatorChekbox_i5}</arg>
+<doc>Selects the checkbox identified by ``locator``.</doc>
+<msg timestamp="20220429 21:11:31.583" level="INFO">Selecting checkbox '//*[@id="attribute-option-6"]'.</msg>
+<status status="PASS" starttime="20220429 21:11:31.581" endtime="20220429 21:11:31.747"/>
+</kw>
+<kw name="Select Checkbox" library="SeleniumLibrary">
+<arg>${LocatorCheckbox_8GB}</arg>
+<doc>Selects the checkbox identified by ``locator``.</doc>
+<msg timestamp="20220429 21:11:31.751" level="INFO">Selecting checkbox '//*[@id="attribute-option-9"]'.</msg>
+<status status="PASS" starttime="20220429 21:11:31.749" endtime="20220429 21:11:32.042"/>
+</kw>
+<status status="PASS" starttime="20220429 21:11:31.578" endtime="20220429 21:11:32.047"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${LocatorSumsungI5&amp;8GB}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220429 21:11:32.049" endtime="20220429 21:11:32.118"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220429 21:11:32.120" endtime="20220429 21:11:34.427"/>
+</kw>
+<status status="PASS" starttime="20220429 21:11:24.987" endtime="20220429 21:11:34.428"/>
+</test>
+<test id="s1-s1-s3-t2" name="TC014.Test the highlighting on the vertical menu">
+<kw name="Open app" library="Common" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${HomepageURL}</arg>
+<arg>${Browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220429 21:11:34.435" level="INFO">Opening browser 'chrome' to base url 'https://demo.nopcommerce.com/'.</msg>
+<status status="PASS" starttime="20220429 21:11:34.434" endtime="20220429 21:11:37.731"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20220429 21:11:37.732" endtime="20220429 21:11:37.896"/>
+</kw>
+<status status="PASS" starttime="20220429 21:11:34.433" endtime="20220429 21:11:37.897"/>
+</kw>
+<kw name="Navigate to Notebooks" library="Product_List">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${LocatorComputers}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220429 21:11:37.899" level="INFO">Clicking element '(//a[@href="/computers"])[1]'.</msg>
+<status status="PASS" starttime="20220429 21:11:37.898" endtime="20220429 21:11:38.802"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${LocatorNotebooks }</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220429 21:11:38.804" level="INFO">Clicking element '(//a[@href="/notebooks"])[3]'.</msg>
+<status status="PASS" starttime="20220429 21:11:38.802" endtime="20220429 21:11:39.758"/>
+</kw>
+<status status="PASS" starttime="20220429 21:11:37.897" endtime="20220429 21:11:39.760"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${Loc.Comp.VerticalMenu}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20220429 21:11:39.800" level="INFO">Element '(//*[@href="/computers"])[3]' is displayed.</msg>
+<status status="PASS" starttime="20220429 21:11:39.760" endtime="20220429 21:11:39.801"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${Loc.SubCategoryCom}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220429 21:11:39.801" endtime="20220429 21:11:39.839"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${LocVer.M.Jewelry}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220429 21:11:39.840" level="INFO">Clicking element '(//*[@href="/jewelry"])[3]'.</msg>
+<status status="PASS" starttime="20220429 21:11:39.839" endtime="20220429 21:11:40.675"/>
+</kw>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>${LocJewelryTitle}</arg>
+<arg>Jewelry</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20220429 21:11:40.677" level="INFO">Verifying element '//*[@class="page-title"]/h1' contains exact text 'Jewelry'.</msg>
+<status status="PASS" starttime="20220429 21:11:40.676" endtime="20220429 21:11:40.753"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${LocVer.M.Jewelry}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20220429 21:11:40.780" level="INFO">Element '(//*[@href="/jewelry"])[3]' is displayed.</msg>
+<status status="PASS" starttime="20220429 21:11:40.754" endtime="20220429 21:11:40.780"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220429 21:11:40.781" endtime="20220429 21:11:43.059"/>
+</kw>
+<status status="PASS" starttime="20220429 21:11:34.430" endtime="20220429 21:11:43.060"/>
+</test>
+<status status="PASS" starttime="20220429 21:11:24.952" endtime="20220429 21:11:43.064"/>
+</suite>
+<suite id="s1-s1-s4" name="Register" source="C:\Users\Nikola\OneDrive\Documents\Robot Framework Course\Robot_Framework_Exercises\Tests\Register.robot">
+<test id="s1-s1-s4-t1" name="TC005.RegisterNewUserWithDifferentPasswordAndConfirmPassworkField">
+<kw name="Open app" library="Common" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${HomepageURL}</arg>
+<arg>${Browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220429 21:11:43.137" level="INFO">Opening browser 'chrome' to base url 'https://demo.nopcommerce.com/'.</msg>
+<status status="PASS" starttime="20220429 21:11:43.136" endtime="20220429 21:11:47.371"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20220429 21:11:47.372" endtime="20220429 21:11:47.530"/>
+</kw>
+<status status="PASS" starttime="20220429 21:11:43.134" endtime="20220429 21:11:47.532"/>
+</kw>
+<kw name="NavigateToRegisterPage" library="Common">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${RegisterBtnTopMenu}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220429 21:11:47.540" level="INFO">Clicking element '//*[@href="/register?returnUrl=%2F"]'.</msg>
+<status status="PASS" starttime="20220429 21:11:47.538" endtime="20220429 21:11:48.454"/>
+</kw>
+<status status="PASS" starttime="20220429 21:11:47.536" endtime="20220429 21:11:48.456"/>
+</kw>
+<kw name="DateOfMyBird" library="Register">
+<arg>${DateMyBird}</arg>
+<arg>${MonthMyBird}</arg>
+<arg>${YearMyBird}</arg>
+<kw name="Select From List By Value" library="SeleniumLibrary">
+<arg>${LocatorDateOfBirth}</arg>
+<arg>${arg1}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<msg timestamp="20220429 21:11:48.460" level="INFO">Selecting options from selection list '//*[@name="DateOfBirthDay"]' by value 5.</msg>
+<status status="PASS" starttime="20220429 21:11:48.459" endtime="20220429 21:11:48.602"/>
+</kw>
+<kw name="Select From List By Value" library="SeleniumLibrary">
+<arg>${Loc_DateOfBirthMonth}</arg>
+<arg>${arg2}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<msg timestamp="20220429 21:11:48.604" level="INFO">Selecting options from selection list '//*[@name="DateOfBirthMonth"]' by value 10.</msg>
+<status status="PASS" starttime="20220429 21:11:48.603" endtime="20220429 21:11:48.828"/>
+</kw>
+<kw name="Select From List By Value" library="SeleniumLibrary">
+<arg>${LocatorYearOfBirth}</arg>
+<arg>${arg3}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<msg timestamp="20220429 21:11:48.831" level="INFO">Selecting options from selection list '//*[@name="DateOfBirthYear"]' by value 1982.</msg>
+<status status="PASS" starttime="20220429 21:11:48.829" endtime="20220429 21:11:49.071"/>
+</kw>
+<status status="PASS" starttime="20220429 21:11:48.456" endtime="20220429 21:11:49.072"/>
+</kw>
+<kw name="Generate Random Email" library="Register">
+<kw name="Generate Random String" library="String">
+<var>${random2}</var>
+<arg>5</arg>
+<arg>[LOWER]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<msg timestamp="20220429 21:11:49.075" level="INFO">${random2} = jxame</msg>
+<status status="PASS" starttime="20220429 21:11:49.074" endtime="20220429 21:11:49.076"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${randomEmail}</var>
+<arg>${random2}@on.net.mk</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20220429 21:11:49.078" level="INFO">${randomEmail} = jxame@on.net.mk</msg>
+<status status="PASS" starttime="20220429 21:11:49.076" endtime="20220429 21:11:49.078"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${randomEmail}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220429 21:11:49.082" level="INFO">${randomEmail} = jxame@on.net.mk</msg>
+<status status="PASS" starttime="20220429 21:11:49.079" endtime="20220429 21:11:49.083"/>
+</kw>
+<status status="PASS" starttime="20220429 21:11:49.072" endtime="20220429 21:11:49.084"/>
+</kw>
+<kw name="Register User" library="Register">
+<arg>${FirstNameText}</arg>
+<arg>${LastNameText}</arg>
+<arg>${randomEmail}</arg>
+<arg>${PasswordText}</arg>
+<arg>${ConfirmPasswordDiffrent}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${FirstNameLoc}</arg>
+<arg>${arg1}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220429 21:11:49.089" level="INFO">Typing text 'Nikolce' into text field '//*[@id="FirstName"]'.</msg>
+<status status="PASS" starttime="20220429 21:11:49.087" endtime="20220429 21:11:49.347"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${LastNameLoc}</arg>
+<arg>${arg2}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220429 21:11:49.350" level="INFO">Typing text 'Karavesovski' into text field '//*[@id="LastName"]'.</msg>
+<status status="PASS" starttime="20220429 21:11:49.348" endtime="20220429 21:11:49.602"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${EmailLocator}</arg>
+<arg>${arg3}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220429 21:11:49.604" level="INFO">Typing text 'jxame@on.net.mk' into text field '//*[@id="Email"]'.</msg>
+<status status="PASS" starttime="20220429 21:11:49.603" endtime="20220429 21:11:49.852"/>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>${PasswordLocator}</arg>
+<arg>${arg4}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20220429 21:11:49.854" level="INFO">Typing password into text field '//*[@id="Password"]'.</msg>
+<msg timestamp="20220429 21:11:49.973" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20220429 21:11:50.097" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20220429 21:11:49.853" endtime="20220429 21:11:50.098"/>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>${ConfirmPasswordLocator}</arg>
+<arg>${arg5}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20220429 21:11:50.099" level="INFO">Typing password into text field '//*[@name="ConfirmPassword"]'.</msg>
+<msg timestamp="20220429 21:11:50.162" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20220429 21:11:50.316" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20220429 21:11:50.098" endtime="20220429 21:11:50.317"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>20</arg>
+<arg>2</arg>
+<arg>Click Button</arg>
+<arg>${RegisterBtn}</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${RegisterBtn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220429 21:11:50.319" level="INFO">Clicking button '//*[@name="register-button"]'.</msg>
+<status status="PASS" starttime="20220429 21:11:50.318" endtime="20220429 21:11:50.423"/>
+</kw>
+<status status="PASS" starttime="20220429 21:11:50.317" endtime="20220429 21:11:50.424"/>
+</kw>
+<status status="PASS" starttime="20220429 21:11:49.085" endtime="20220429 21:11:50.425"/>
+</kw>
+<kw name="Verify That Password and Confirm password are Different" library="Register">
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>${LocatorForConfirmPasswordError}</arg>
+<arg>The password and confirmation password do not match.</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20220429 21:11:50.428" level="INFO">Verifying element '//*[@id="ConfirmPassword-error"]' contains exact text 'The password and confirmation password do not match.'.</msg>
+<status status="PASS" starttime="20220429 21:11:50.427" endtime="20220429 21:11:50.476"/>
+</kw>
+<status status="PASS" starttime="20220429 21:11:50.426" endtime="20220429 21:11:50.477"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220429 21:11:50.478" endtime="20220429 21:11:52.759"/>
+</kw>
+<status status="PASS" starttime="20220429 21:11:43.132" endtime="20220429 21:11:52.760"/>
+</test>
+<test id="s1-s1-s4-t2" name="TC007.RegisterNewUserWithEmptyPasswordAndConfirmPasswordField">
+<kw name="Open app" library="Common" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${HomepageURL}</arg>
+<arg>${Browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220429 21:11:52.770" level="INFO">Opening browser 'chrome' to base url 'https://demo.nopcommerce.com/'.</msg>
+<status status="PASS" starttime="20220429 21:11:52.768" endtime="20220429 21:11:56.069"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20220429 21:11:56.070" endtime="20220429 21:11:56.222"/>
+</kw>
+<status status="PASS" starttime="20220429 21:11:52.766" endtime="20220429 21:11:56.224"/>
+</kw>
+<kw name="NavigateToRegisterPage" library="Common">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${RegisterBtnTopMenu}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220429 21:11:56.230" level="INFO">Clicking element '//*[@href="/register?returnUrl=%2F"]'.</msg>
+<status status="PASS" starttime="20220429 21:11:56.229" endtime="20220429 21:11:57.402"/>
+</kw>
+<status status="PASS" starttime="20220429 21:11:56.225" endtime="20220429 21:11:57.403"/>
+</kw>
+<kw name="DateOfMyBird" library="Register">
+<arg>${DateMyBird}</arg>
+<arg>${MonthMyBird}</arg>
+<arg>${YearMyBird}</arg>
+<kw name="Select From List By Value" library="SeleniumLibrary">
+<arg>${LocatorDateOfBirth}</arg>
+<arg>${arg1}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<msg timestamp="20220429 21:11:57.405" level="INFO">Selecting options from selection list '//*[@name="DateOfBirthDay"]' by value 5.</msg>
+<status status="PASS" starttime="20220429 21:11:57.405" endtime="20220429 21:11:57.535"/>
+</kw>
+<kw name="Select From List By Value" library="SeleniumLibrary">
+<arg>${Loc_DateOfBirthMonth}</arg>
+<arg>${arg2}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<msg timestamp="20220429 21:11:57.537" level="INFO">Selecting options from selection list '//*[@name="DateOfBirthMonth"]' by value 10.</msg>
+<status status="PASS" starttime="20220429 21:11:57.536" endtime="20220429 21:11:57.704"/>
+</kw>
+<kw name="Select From List By Value" library="SeleniumLibrary">
+<arg>${LocatorYearOfBirth}</arg>
+<arg>${arg3}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<msg timestamp="20220429 21:11:57.707" level="INFO">Selecting options from selection list '//*[@name="DateOfBirthYear"]' by value 1982.</msg>
+<status status="PASS" starttime="20220429 21:11:57.705" endtime="20220429 21:11:57.944"/>
+</kw>
+<status status="PASS" starttime="20220429 21:11:57.403" endtime="20220429 21:11:57.945"/>
+</kw>
+<kw name="Generate Random Email" library="Register">
+<kw name="Generate Random String" library="String">
+<var>${random2}</var>
+<arg>5</arg>
+<arg>[LOWER]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<msg timestamp="20220429 21:11:57.949" level="INFO">${random2} = cwugo</msg>
+<status status="PASS" starttime="20220429 21:11:57.948" endtime="20220429 21:11:57.950"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${randomEmail}</var>
+<arg>${random2}@on.net.mk</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20220429 21:11:57.952" level="INFO">${randomEmail} = cwugo@on.net.mk</msg>
+<status status="PASS" starttime="20220429 21:11:57.951" endtime="20220429 21:11:57.952"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${randomEmail}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220429 21:11:57.955" level="INFO">${randomEmail} = cwugo@on.net.mk</msg>
+<status status="PASS" starttime="20220429 21:11:57.953" endtime="20220429 21:11:57.955"/>
+</kw>
+<status status="PASS" starttime="20220429 21:11:57.946" endtime="20220429 21:11:57.958"/>
+</kw>
+<kw name="Register User" library="Register">
+<arg>${FirstNameText}</arg>
+<arg>${LastNameText}</arg>
+<arg>${randomEmail}</arg>
+<arg>${EMPTY}</arg>
+<arg>${ConfirmPasswordText}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${FirstNameLoc}</arg>
+<arg>${arg1}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220429 21:11:57.966" level="INFO">Typing text 'Nikolce' into text field '//*[@id="FirstName"]'.</msg>
+<status status="PASS" starttime="20220429 21:11:57.965" endtime="20220429 21:11:58.244"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${LastNameLoc}</arg>
+<arg>${arg2}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220429 21:11:58.246" level="INFO">Typing text 'Karavesovski' into text field '//*[@id="LastName"]'.</msg>
+<status status="PASS" starttime="20220429 21:11:58.245" endtime="20220429 21:11:58.580"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${EmailLocator}</arg>
+<arg>${arg3}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220429 21:11:58.583" level="INFO">Typing text 'cwugo@on.net.mk' into text field '//*[@id="Email"]'.</msg>
+<status status="PASS" starttime="20220429 21:11:58.581" endtime="20220429 21:11:58.854"/>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>${PasswordLocator}</arg>
+<arg>${arg4}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20220429 21:11:58.856" level="INFO">Typing password into text field '//*[@id="Password"]'.</msg>
+<msg timestamp="20220429 21:11:58.923" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20220429 21:11:58.997" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20220429 21:11:58.855" endtime="20220429 21:11:58.998"/>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>${ConfirmPasswordLocator}</arg>
+<arg>${arg5}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20220429 21:11:59.000" level="INFO">Typing password into text field '//*[@name="ConfirmPassword"]'.</msg>
+<msg timestamp="20220429 21:11:59.066" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20220429 21:11:59.181" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20220429 21:11:58.999" endtime="20220429 21:11:59.181"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>20</arg>
+<arg>2</arg>
+<arg>Click Button</arg>
+<arg>${RegisterBtn}</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${RegisterBtn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220429 21:11:59.183" level="INFO">Clicking button '//*[@name="register-button"]'.</msg>
+<status status="PASS" starttime="20220429 21:11:59.183" endtime="20220429 21:11:59.325"/>
+</kw>
+<status status="PASS" starttime="20220429 21:11:59.182" endtime="20220429 21:11:59.325"/>
+</kw>
+<status status="PASS" starttime="20220429 21:11:57.960" endtime="20220429 21:11:59.326"/>
+</kw>
+<kw name="Verify That Password and Confirm password are Different" library="Register">
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>${LocatorForConfirmPasswordError}</arg>
+<arg>The password and confirmation password do not match.</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20220429 21:11:59.330" level="INFO">Verifying element '//*[@id="ConfirmPassword-error"]' contains exact text 'The password and confirmation password do not match.'.</msg>
+<status status="PASS" starttime="20220429 21:11:59.328" endtime="20220429 21:11:59.493"/>
+</kw>
+<status status="PASS" starttime="20220429 21:11:59.327" endtime="20220429 21:11:59.493"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220429 21:11:59.494" endtime="20220429 21:12:01.747"/>
+</kw>
+<status status="PASS" starttime="20220429 21:11:52.763" endtime="20220429 21:12:01.748"/>
+</test>
+<status status="PASS" starttime="20220429 21:11:43.077" endtime="20220429 21:12:01.750"/>
+</suite>
+<suite id="s1-s1-s5" name="Search" source="C:\Users\Nikola\OneDrive\Documents\Robot Framework Course\Robot_Framework_Exercises\Tests\Search.robot">
+<test id="s1-s1-s5-t1" name="TC005.Check if auto-suggestion displays suggestions in the search field">
+<kw name="Open app" library="Common" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${HomepageURL}</arg>
+<arg>${Browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220429 21:12:01.817" level="INFO">Opening browser 'chrome' to base url 'https://demo.nopcommerce.com/'.</msg>
+<status status="PASS" starttime="20220429 21:12:01.816" endtime="20220429 21:12:05.145"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20220429 21:12:05.146" endtime="20220429 21:12:05.283"/>
+</kw>
+<status status="PASS" starttime="20220429 21:12:01.814" endtime="20220429 21:12:05.283"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${LocatorForSearch}</arg>
+<arg>${SearchAPP}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220429 21:12:05.288" level="INFO">Typing text 'APP' into text field '//*[@id="small-searchterms"]'.</msg>
+<status status="PASS" starttime="20220429 21:12:05.284" endtime="20220429 21:12:05.474"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${SearchDropdownMenu}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220429 21:12:05.474" endtime="20220429 21:12:06.486"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>${SearchResultApple}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20220429 21:12:06.512" level="INFO">Current page contains text 'Apple MacBook Pro 13-inch'.</msg>
+<status status="PASS" starttime="20220429 21:12:06.487" endtime="20220429 21:12:06.512"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220429 21:12:06.513" endtime="20220429 21:12:08.810"/>
+</kw>
+<status status="PASS" starttime="20220429 21:12:01.812" endtime="20220429 21:12:08.811"/>
+</test>
+<test id="s1-s1-s5-t2" name="TC007.Test if auto-suggestions displayed in the search field are accesible with keyboard arrow key">
+<kw name="Open app" library="Common" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${HomepageURL}</arg>
+<arg>${Browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220429 21:12:08.821" level="INFO">Opening browser 'chrome' to base url 'https://demo.nopcommerce.com/'.</msg>
+<status status="PASS" starttime="20220429 21:12:08.819" endtime="20220429 21:12:12.452"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20220429 21:12:12.453" endtime="20220429 21:12:12.590"/>
+</kw>
+<status status="PASS" starttime="20220429 21:12:08.817" endtime="20220429 21:12:12.591"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${LocatorForSearch}</arg>
+<arg>${SearchProd.Asus}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220429 21:12:12.592" level="INFO">Typing text 'asus' into text field '//*[@id="small-searchterms"]'.</msg>
+<status status="PASS" starttime="20220429 21:12:12.591" endtime="20220429 21:12:12.753"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${SearchDropdownMenu}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220429 21:12:12.754" endtime="20220429 21:12:13.709"/>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>${SearchSubMenu}</arg>
+<arg>ARROW_DOWN</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20220429 21:12:13.713" level="INFO">Sending key(s) ('ARROW_DOWN',) to //*[@id="ui-id-1"] element.</msg>
+<msg timestamp="20220429 21:12:24.568" level="INFO">Pressing special key ARROW_DOWN to element.</msg>
+<msg timestamp="20220429 21:12:24.568" level="INFO">Releasing special key ARROW_DOWN.</msg>
+<status status="PASS" starttime="20220429 21:12:13.710" endtime="20220429 21:12:24.592"/>
+</kw>
+<kw name="Location Should Be" library="SeleniumLibrary">
+<arg>https://demo.nopcommerce.com/${SearchProd.Asus}-n551jk-xo076h-laptop</arg>
+<doc>Verifies that the current URL is exactly ``url``.</doc>
+<msg timestamp="20220429 21:12:24.601" level="INFO">Current location is 'https://demo.nopcommerce.com/asus-n551jk-xo076h-laptop'.</msg>
+<status status="PASS" starttime="20220429 21:12:24.593" endtime="20220429 21:12:24.601"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>${SearchProductAsusN551}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20220429 21:12:24.638" level="INFO">Current page contains text 'Asus N551JK-XO076H Laptop'.</msg>
+<status status="PASS" starttime="20220429 21:12:24.601" endtime="20220429 21:12:24.638"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220429 21:12:24.641" endtime="20220429 21:12:26.929"/>
+</kw>
+<status status="PASS" starttime="20220429 21:12:08.814" endtime="20220429 21:12:26.931"/>
+</test>
+<status status="PASS" starttime="20220429 21:12:01.758" endtime="20220429 21:12:26.935"/>
+</suite>
+<suite id="s1-s1-s6" name="Wish List" source="C:\Users\Nikola\OneDrive\Documents\Robot Framework Course\Robot_Framework_Exercises\Tests\Wish_List.robot">
+<test id="s1-s1-s6-t1" name="TC003.Check Add products to Cart from wishlist page functionality is working correctly">
+<kw name="Open app" library="Common" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${HomepageURL}</arg>
+<arg>${Browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220429 21:12:27.022" level="INFO">Opening browser 'chrome' to base url 'https://demo.nopcommerce.com/'.</msg>
+<status status="PASS" starttime="20220429 21:12:27.021" endtime="20220429 21:12:30.406"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20220429 21:12:30.408" endtime="20220429 21:12:30.560"/>
+</kw>
+<status status="PASS" starttime="20220429 21:12:27.019" endtime="20220429 21:12:30.561"/>
+</kw>
+<kw name="Add First_Prize_Pies to Wish List" library="Wish_List">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${BooksTopMenu}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220429 21:12:30.563" level="INFO">Clicking element '(//*[@href="/books"])[1]'.</msg>
+<status status="PASS" starttime="20220429 21:12:30.562" endtime="20220429 21:12:31.629"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${AddToWishListFirst_Prize_Pies}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220429 21:12:31.629" endtime="20220429 21:12:31.667"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${AddToWishListFirst_Prize_Pies}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220429 21:12:31.670" level="INFO">Clicking element '(//*[@class="button-2 add-to-wishlist-button"])[2]'.</msg>
+<status status="PASS" starttime="20220429 21:12:31.668" endtime="20220429 21:12:31.773"/>
+</kw>
+<status status="PASS" starttime="20220429 21:12:30.561" endtime="20220429 21:12:31.774"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${LocWishList2}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220429 21:12:31.776" level="INFO">Clicking element '(//*[@href="/wishlist"])[2]'.</msg>
+<status status="PASS" starttime="20220429 21:12:31.775" endtime="20220429 21:12:32.947"/>
+</kw>
+<kw name="Add to Cart from Wish List" library="Wish_List">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${ChackBoxAddToCart}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220429 21:12:32.950" endtime="20220429 21:12:32.989"/>
+</kw>
+<kw name="Select Checkbox" library="SeleniumLibrary">
+<arg>${ChackBoxAddToCart}</arg>
+<doc>Selects the checkbox identified by ``locator``.</doc>
+<msg timestamp="20220429 21:12:32.990" level="INFO">Selecting checkbox '//*[@name="addtocart"]'.</msg>
+<status status="PASS" starttime="20220429 21:12:32.990" endtime="20220429 21:12:33.099"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${AddToCartBtnFromWhishList}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220429 21:12:33.102" level="INFO">Clicking element '//*[@name="addtocartbutton"]'.</msg>
+<status status="PASS" starttime="20220429 21:12:33.100" endtime="20220429 21:12:35.363"/>
+</kw>
+<status status="PASS" starttime="20220429 21:12:32.949" endtime="20220429 21:12:35.364"/>
+</kw>
+<kw name="Validate that First Prize Pies book is add to Shopping Cart" library="Wish_List">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${ShoppinCartTitle}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220429 21:12:35.365" endtime="20220429 21:12:35.413"/>
+</kw>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>${ShoppinCartTitle}</arg>
+<arg>Shopping cart</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20220429 21:12:35.414" level="INFO">Verifying element '//*[@class="page-title"]/h1' contains exact text 'Shopping cart'.</msg>
+<status status="PASS" starttime="20220429 21:12:35.413" endtime="20220429 21:12:35.454"/>
+</kw>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>${ProductNameWishList}</arg>
+<arg>First Prize Pies</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20220429 21:12:35.455" level="INFO">Verifying element '//*[@class="product-name"]' contains exact text 'First Prize Pies'.</msg>
+<status status="PASS" starttime="20220429 21:12:35.454" endtime="20220429 21:12:35.497"/>
+</kw>
+<status status="PASS" starttime="20220429 21:12:35.364" endtime="20220429 21:12:35.498"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220429 21:12:35.498" endtime="20220429 21:12:37.809"/>
+</kw>
+<status status="PASS" starttime="20220429 21:12:27.015" endtime="20220429 21:12:37.811"/>
+</test>
+<status status="PASS" starttime="20220429 21:12:26.944" endtime="20220429 21:12:37.815"/>
+</suite>
+<status status="PASS" starttime="20220429 21:10:57.810" endtime="20220429 21:12:37.831"/>
+</suite>
+<status status="PASS" starttime="20220429 21:10:57.468" endtime="20220429 21:12:37.860"/>
+</suite>
+<statistics>
+<total>
+<stat pass="10" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="10" fail="0" skip="0" id="s1" name="Robot Framework Exercises">Robot Framework Exercises</stat>
+<stat pass="10" fail="0" skip="0" id="s1-s1" name="Tests">Robot Framework Exercises.Tests</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1-s1" name="Checkout">Robot Framework Exercises.Tests.Checkout</stat>
+<stat pass="2" fail="0" skip="0" id="s1-s1-s2" name="Login">Robot Framework Exercises.Tests.Login</stat>
+<stat pass="2" fail="0" skip="0" id="s1-s1-s3" name="Product List">Robot Framework Exercises.Tests.Product List</stat>
+<stat pass="2" fail="0" skip="0" id="s1-s1-s4" name="Register">Robot Framework Exercises.Tests.Register</stat>
+<stat pass="2" fail="0" skip="0" id="s1-s1-s5" name="Search">Robot Framework Exercises.Tests.Search</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1-s6" name="Wish List">Robot Framework Exercises.Tests.Wish List</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20220429 21:11:08.232" level="ERROR">Error in file 'C:\Users\Nikola\OneDrive\Documents\Robot Framework Course\Robot_Framework_Exercises\Tests\Login.robot' on line 8: Importing library 'ExselRobot' failed: ModuleNotFoundError: No module named 'ExselRobot'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  C:\Program Files\Python37\Scripts\robot.exe
+  c:\program files\python37\python37.zip
+  c:\program files\python37\DLLs
+  c:\program files\python37\lib
+  c:\program files\python37
+  c:\program files\python37\lib\site-packages
+  c:\program files\python37\lib\site-packages\win32
+  c:\program files\python37\lib\site-packages\win32\lib
+  c:\program files\python37\lib\site-packages\Pythonwin
+  C:\Program Files\Python37\lib\site-packages\robotide\contrib\testrunner\../../lib</msg>
+</errors>
+</robot>

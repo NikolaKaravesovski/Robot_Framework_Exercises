@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.1 (Python 3.7.5 on win32)" generated="20220331 17:32:45.759" rpa="false" schemaversion="2">
+<suite id="s1" name="MyRegisterAccount" source="C:\Users\Nikola\OneDrive\Documents\Robot Framework Course\Robot_Framework_Course\MyRegisterAccount.robot">
+<kw name="Log" library="BuiltIn" type="SETUP">
+<arg>Suite started</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220331 17:32:46.083" level="INFO">Suite started</msg>
+<status status="PASS" starttime="20220331 17:32:46.083" endtime="20220331 17:32:46.083"/>
+</kw>
+<test id="s1-t1" name="01RegisterWithValidCredentials">
+<kw name="OpenApp" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${URL}</arg>
+<arg>${Browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220331 17:32:46.085" level="INFO">Opening browser 'chrome' to base url 'http://qacourse.churlinoski.mk/'.</msg>
+<status status="PASS" starttime="20220331 17:32:46.085" endtime="20220331 17:32:51.701"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20220331 17:32:51.702" endtime="20220331 17:32:51.834"/>
+</kw>
+<kw name="Location Should Be" library="SeleniumLibrary">
+<arg>${URL}</arg>
+<doc>Verifies that the current URL is exactly ``url``.</doc>
+<msg timestamp="20220331 17:32:51.853" level="INFO">Current location is 'http://qacourse.churlinoski.mk/'.</msg>
+<status status="PASS" starttime="20220331 17:32:51.835" endtime="20220331 17:32:51.853"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${Dismiss}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220331 17:32:51.854" level="INFO">Clicking element '//a[@class="woocommerce-store-notice__dismiss-link"]'.</msg>
+<status status="PASS" starttime="20220331 17:32:51.853" endtime="20220331 17:32:51.960"/>
+</kw>
+<status status="PASS" starttime="20220331 17:32:46.084" endtime="20220331 17:32:51.961"/>
+</kw>
+<kw name="NavigateToMyAccountPage">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//div[@class="tools-icon my-account"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220331 17:32:51.964" level="INFO">Clicking element '//div[@class="tools-icon my-account"]'.</msg>
+<status status="PASS" starttime="20220331 17:32:51.964" endtime="20220331 17:32:53.265"/>
+</kw>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>//*[@class="u-column2 col-2"]/h2</arg>
+<arg>Register</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20220331 17:32:53.266" level="INFO">Verifying element '//*[@class="u-column2 col-2"]/h2' contains exact text 'Register'.</msg>
+<status status="PASS" starttime="20220331 17:32:53.266" endtime="20220331 17:32:53.304"/>
+</kw>
+<status status="PASS" starttime="20220331 17:32:51.963" endtime="20220331 17:32:53.304"/>
+</kw>
+<kw name="Generate Random String" library="String">
+<var>${ran string}</var>
+<arg>length=3</arg>
+<arg>chars=[LOWER]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<msg timestamp="20220331 17:32:53.305" level="INFO">${ran string} = wcz</msg>
+<status status="PASS" starttime="20220331 17:32:53.305" endtime="20220331 17:32:53.305"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${string}</var>
+<arg>NicolaKara</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20220331 17:32:53.306" level="INFO">${string} = NicolaKara</msg>
+<status status="PASS" starttime="20220331 17:32:53.306" endtime="20220331 17:32:53.306"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${RandomUsername}</var>
+<arg>${ran string}${string}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20220331 17:32:53.308" level="INFO">${RandomUsername} = wczNicolaKara</msg>
+<status status="PASS" starttime="20220331 17:32:53.307" endtime="20220331 17:32:53.308"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${RandomEmail}</var>
+<arg>${ran string}${string}@on.net.mk</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20220331 17:32:53.309" level="INFO">${RandomEmail} = wczNicolaKara@on.net.mk</msg>
+<status status="PASS" starttime="20220331 17:32:53.308" endtime="20220331 17:32:53.309"/>
+</kw>
+<kw name="Generate Random String" library="String">
+<var>${RandomPassword}</var>
+<arg>length=12</arg>
+<arg>chars=[NUMBERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<msg timestamp="20220331 17:32:53.310" level="INFO">${RandomPassword} = 444383725074</msg>
+<status status="PASS" starttime="20220331 17:32:53.310" endtime="20220331 17:32:53.310"/>
+</kw>
+<kw name="Register">
+<arg>${RandomUsername}</arg>
+<arg>${RandomEmail}</arg>
+<arg>${RandomPassword}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id:reg_username</arg>
+<arg>${arg1}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220331 17:32:53.312" level="INFO">Typing text 'wczNicolaKara' into text field 'id:reg_username'.</msg>
+<status status="PASS" starttime="20220331 17:32:53.312" endtime="20220331 17:32:53.495"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id:reg_email</arg>
+<arg>${arg2}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220331 17:32:53.496" level="INFO">Typing text 'wczNicolaKara@on.net.mk' into text field 'id:reg_email'.</msg>
+<status status="PASS" starttime="20220331 17:32:53.496" endtime="20220331 17:32:53.714"/>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>id:reg_password</arg>
+<arg>${arg3}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20220331 17:32:53.715" level="INFO">Typing password into text field 'id:reg_password'.</msg>
+<msg timestamp="20220331 17:32:53.782" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20220331 17:32:53.887" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20220331 17:32:53.714" endtime="20220331 17:32:53.887"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>//*[@name="register"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220331 17:32:53.888" level="INFO">Clicking button '//*[@name="register"]'.</msg>
+<status status="PASS" starttime="20220331 17:32:53.888" endtime="20220331 17:32:55.258"/>
+</kw>
+<status status="PASS" starttime="20220331 17:32:53.311" endtime="20220331 17:32:55.258"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${Dashboard}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220331 17:32:55.259" endtime="20220331 17:32:55.296"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${Dashboard}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20220331 17:32:55.327" level="INFO">Element '//li[@class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--dashboard is-active"]' is displayed.</msg>
+<status status="PASS" starttime="20220331 17:32:55.298" endtime="20220331 17:32:55.327"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220331 17:32:55.328" endtime="20220331 17:32:57.637"/>
+</kw>
+<tag>Smoke</tag>
+<status status="PASS" starttime="20220331 17:32:46.084" endtime="20220331 17:32:57.638"/>
+</test>
+<test id="s1-t2" name="07RegisterWithBlankInputFields">
+<kw name="OpenApp" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${URL}</arg>
+<arg>${Browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220331 17:32:57.649" level="INFO">Opening browser 'chrome' to base url 'http://qacourse.churlinoski.mk/'.</msg>
+<status status="PASS" starttime="20220331 17:32:57.648" endtime="20220331 17:33:03.134"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20220331 17:33:03.134" endtime="20220331 17:33:03.277"/>
+</kw>
+<kw name="Location Should Be" library="SeleniumLibrary">
+<arg>${URL}</arg>
+<doc>Verifies that the current URL is exactly ``url``.</doc>
+<msg timestamp="20220331 17:33:03.283" level="INFO">Current location is 'http://qacourse.churlinoski.mk/'.</msg>
+<status status="PASS" starttime="20220331 17:33:03.277" endtime="20220331 17:33:03.284"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${Dismiss}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220331 17:33:03.285" level="INFO">Clicking element '//a[@class="woocommerce-store-notice__dismiss-link"]'.</msg>
+<status status="PASS" starttime="20220331 17:33:03.284" endtime="20220331 17:33:03.392"/>
+</kw>
+<status status="PASS" starttime="20220331 17:32:57.646" endtime="20220331 17:33:03.393"/>
+</kw>
+<kw name="NavigateToMyAccountPage">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//div[@class="tools-icon my-account"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220331 17:33:03.395" level="INFO">Clicking element '//div[@class="tools-icon my-account"]'.</msg>
+<status status="PASS" starttime="20220331 17:33:03.394" endtime="20220331 17:33:04.567"/>
+</kw>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>//*[@class="u-column2 col-2"]/h2</arg>
+<arg>Register</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20220331 17:33:04.569" level="INFO">Verifying element '//*[@class="u-column2 col-2"]/h2' contains exact text 'Register'.</msg>
+<status status="PASS" starttime="20220331 17:33:04.568" endtime="20220331 17:33:04.612"/>
+</kw>
+<status status="PASS" starttime="20220331 17:33:03.394" endtime="20220331 17:33:04.613"/>
+</kw>
+<kw name="Register">
+<arg>${EMPTY}</arg>
+<arg>${EMPTY}</arg>
+<arg>${EMPTY}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id:reg_username</arg>
+<arg>${arg1}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220331 17:33:04.620" level="INFO">Typing text '' into text field 'id:reg_username'.</msg>
+<status status="PASS" starttime="20220331 17:33:04.619" endtime="20220331 17:33:04.767"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id:reg_email</arg>
+<arg>${arg2}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220331 17:33:04.770" level="INFO">Typing text '' into text field 'id:reg_email'.</msg>
+<status status="PASS" starttime="20220331 17:33:04.768" endtime="20220331 17:33:04.925"/>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>id:reg_password</arg>
+<arg>${arg3}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20220331 17:33:04.925" level="INFO">Typing password into text field 'id:reg_password'.</msg>
+<msg timestamp="20220331 17:33:05.032" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20220331 17:33:05.112" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20220331 17:33:04.925" endtime="20220331 17:33:05.112"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>//*[@name="register"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220331 17:33:05.114" level="INFO">Clicking button '//*[@name="register"]'.</msg>
+<status status="PASS" starttime="20220331 17:33:05.113" endtime="20220331 17:33:06.236"/>
+</kw>
+<status status="PASS" starttime="20220331 17:33:04.614" endtime="20220331 17:33:06.237"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${ErrorMessage}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20220331 17:33:06.280" level="INFO">Element '//*[@class="woocommerce-error"]' is displayed.</msg>
+<status status="PASS" starttime="20220331 17:33:06.239" endtime="20220331 17:33:06.281"/>
+</kw>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>${ErrorMessage}</arg>
+<arg>Error: Please provide a valid email address.</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20220331 17:33:06.283" level="INFO">Verifying element '//*[@class="woocommerce-error"]' contains exact text 'Error: Please provide a valid email address.'.</msg>
+<status status="PASS" starttime="20220331 17:33:06.282" endtime="20220331 17:33:06.320"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220331 17:33:06.321" endtime="20220331 17:33:08.621"/>
+</kw>
+<status status="PASS" starttime="20220331 17:32:57.643" endtime="20220331 17:33:08.622"/>
+</test>
+<kw name="Log" library="BuiltIn" type="TEARDOWN">
+<arg>Suite end</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220331 17:33:08.630" level="INFO">Suite end</msg>
+<status status="PASS" starttime="20220331 17:33:08.629" endtime="20220331 17:33:08.630"/>
+</kw>
+<status status="PASS" starttime="20220331 17:32:45.763" endtime="20220331 17:33:08.630"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">Smoke</stat>
+</tag>
+<suite>
+<stat pass="2" fail="0" skip="0" id="s1" name="MyRegisterAccount">MyRegisterAccount</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
